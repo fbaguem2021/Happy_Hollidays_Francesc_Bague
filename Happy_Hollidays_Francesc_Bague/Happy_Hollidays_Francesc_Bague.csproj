@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,8 +55,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controllers\CadenasController.cs" />
+    <Compile Include="models\actividades.cs">
+      <DependentUpon>hoteles_ef.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\act_hotel.cs">
+      <DependentUpon>hoteles_ef.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\cadenas.cs">
+      <DependentUpon>hoteles_ef.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\ciudades.cs">
+      <DependentUpon>hoteles_ef.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\hoteles.cs">
+      <DependentUpon>hoteles_ef.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\hoteles_ef.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hoteles_ef.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\hoteles_ef.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hoteles_ef.tt</DependentUpon>
+    </Compile>
+    <Compile Include="models\hoteles_ef.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hoteles_ef.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="models\Orm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="views\Cadenas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Cadenas.Designer.cs">
+      <DependentUpon>Cadenas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\ManageCadenas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\ManageCadenas.Designer.cs">
+      <DependentUpon>ManageCadenas.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Portada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,9 +116,28 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="views\Cadenas.resx">
+      <DependentUpon>Cadenas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\ManageCadenas.resx">
+      <DependentUpon>ManageCadenas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\Portada.resx">
       <DependentUpon>Portada.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="models\hoteles_ef.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>hoteles_ef.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="models\hoteles_ef.edmx.diagram">
+      <DependentUpon>hoteles_ef.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Happy_Hollidays_Francesc_Bague.models.actividades.datasource" />
+    <None Include="Properties\DataSources\Happy_Hollidays_Francesc_Bague.models.act_hotel.datasource" />
+    <None Include="Properties\DataSources\Happy_Hollidays_Francesc_Bague.models.cadenas.datasource" />
+    <None Include="Properties\DataSources\Happy_Hollidays_Francesc_Bague.models.ciudades.datasource" />
+    <None Include="Properties\DataSources\Happy_Hollidays_Francesc_Bague.models.hoteles.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -79,5 +151,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="models\hoteles_ef.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>hoteles_ef.Context.cs</LastGenOutput>
+      <DependentUpon>hoteles_ef.edmx</DependentUpon>
+    </Content>
+    <Content Include="models\hoteles_ef.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>hoteles_ef.edmx</DependentUpon>
+      <LastGenOutput>hoteles_ef.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
