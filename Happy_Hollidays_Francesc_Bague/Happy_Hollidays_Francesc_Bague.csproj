@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="controllers\CadenasController.cs" />
+    <Compile Include="controllers\CiudadController.cs" />
+    <Compile Include="controllers\HotelesController.cs" />
     <Compile Include="models\actividades.cs">
       <DependentUpon>hoteles_ef.tt</DependentUpon>
     </Compile>
@@ -95,11 +97,23 @@
     <Compile Include="views\Cadenas.Designer.cs">
       <DependentUpon>Cadenas.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Hoteles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Hoteles.Designer.cs">
+      <DependentUpon>Hoteles.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\ManageCadenas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="views\ManageCadenas.Designer.cs">
       <DependentUpon>ManageCadenas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\ManageHoteles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\ManageHoteles.Designer.cs">
+      <DependentUpon>ManageHoteles.cs</DependentUpon>
     </Compile>
     <Compile Include="views\Portada.cs">
       <SubType>Form</SubType>
@@ -115,12 +129,19 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="views\Cadenas.resx">
       <DependentUpon>Cadenas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="views\Hoteles.resx">
+      <DependentUpon>Hoteles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\ManageCadenas.resx">
       <DependentUpon>ManageCadenas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\ManageHoteles.resx">
+      <DependentUpon>ManageHoteles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Portada.resx">
       <DependentUpon>Portada.cs</DependentUpon>
@@ -162,6 +183,9 @@
       <DependentUpon>hoteles_ef.edmx</DependentUpon>
       <LastGenOutput>hoteles_ef.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\log-out.png" />
+    <None Include="Resources\add1.png" />
+    <None Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

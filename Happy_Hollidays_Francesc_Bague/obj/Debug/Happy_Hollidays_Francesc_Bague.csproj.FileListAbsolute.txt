@@ -15,3 +15,5 @@ C:\Users\cep.CEPNET0\source\repos\Happy_Hollidays_Francesc_Bague\Happy_Hollidays
 C:\Users\cep.CEPNET0\source\repos\Happy_Hollidays_Francesc_Bague\Happy_Hollidays_Francesc_Bague\obj\Debug\Happy_Hollidays_Francesc_Bague.pdb
 C:\Users\cep.CEPNET0\source\repos\Happy_Hollidays_Francesc_Bague\Happy_Hollidays_Francesc_Bague\obj\Debug\Happy_Hollidays_Francesc_Bague.views.Cadenas.resources
 C:\Users\cep.CEPNET0\source\repos\Happy_Hollidays_Francesc_Bague\Happy_Hollidays_Francesc_Bague\obj\Debug\Happy_Hollidays_Francesc_Bague.views.ManageCadenas.resources
+C:\Users\cep.CEPNET0\source\repos\Happy_Hollidays_Francesc_Bague\Happy_Hollidays_Francesc_Bague\obj\Debug\Happy_Hollidays_Francesc_Bague.views.Hoteles.resources
+C:\Users\cep.CEPNET0\source\repos\Happy_Hollidays_Francesc_Bague\Happy_Hollidays_Francesc_Bague\obj\Debug\Happy_Hollidays_Francesc_Bague.views.ManageHoteles.resources

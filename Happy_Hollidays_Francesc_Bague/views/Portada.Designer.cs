@@ -73,6 +73,7 @@ namespace Happy_Hollidays_Francesc_Bague.views
             this.msiHoteles.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.msiHoteles.Size = new System.Drawing.Size(180, 22);
             this.msiHoteles.Text = "Hoteles";
+            this.msiHoteles.Click += new System.EventHandler(this.msiHoteles_Click);
             // 
             // msiSeparador
             // 
