@@ -16,5 +16,22 @@ namespace Happy_Hollidays_Francesc_Bague.views
         {
             InitializeComponent();
         }
+
+        private void msiSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void msiCadenas_Click(object sender, EventArgs e)
+        {
+            Cadenas formCadenas = new Cadenas();
+            formCadenas.ShowDialog();
+        }
+
+        private void msiHoteles_Click(object sender, EventArgs e)
+        {
+            Hoteles formhoteles = new Hoteles();
+            formhoteles.ShowDialog();
+        }
     }
 }
