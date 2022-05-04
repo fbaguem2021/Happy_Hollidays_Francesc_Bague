@@ -51,14 +51,7 @@ namespace Happy_Hollidays_Francesc_Bague.views
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbActividades = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnAñadir = new System.Windows.Forms.Button();
-            this.tbGrado = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.dgvActividades = new System.Windows.Forms.DataGridView();
-            this.bsAct_Hotel = new System.Windows.Forms.BindingSource(this.components);
-            this.bsActividades = new System.Windows.Forms.BindingSource(this.components);
             this.idciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +59,13 @@ namespace Happy_Hollidays_Francesc_Bague.views
             this.gradoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actividadesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsAct_Hotel = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbGrado = new System.Windows.Forms.TextBox();
+            this.btnAñadir = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbActividades = new System.Windows.Forms.ComboBox();
+            this.bsActividades = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsCadena)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCiudad)).BeginInit();
@@ -275,52 +275,6 @@ namespace Happy_Hollidays_Francesc_Bague.views
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Actividades";
             // 
-            // cmbActividades
-            // 
-            this.cmbActividades.DataSource = this.bsActividades;
-            this.cmbActividades.DisplayMember = "descripcion";
-            this.cmbActividades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbActividades.FormattingEnabled = true;
-            this.cmbActividades.Location = new System.Drawing.Point(68, 19);
-            this.cmbActividades.Name = "cmbActividades";
-            this.cmbActividades.Size = new System.Drawing.Size(165, 21);
-            this.cmbActividades.TabIndex = 0;
-            this.cmbActividades.ValueMember = "id_act";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Actividad";
-            // 
-            // btnAñadir
-            // 
-            this.btnAñadir.Location = new System.Drawing.Point(371, 17);
-            this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(55, 23);
-            this.btnAñadir.TabIndex = 2;
-            this.btnAñadir.Text = "Añadir";
-            this.btnAñadir.UseVisualStyleBackColor = true;
-            // 
-            // tbGrado
-            // 
-            this.tbGrado.Location = new System.Drawing.Point(281, 19);
-            this.tbGrado.Name = "tbGrado";
-            this.tbGrado.Size = new System.Drawing.Size(84, 20);
-            this.tbGrado.TabIndex = 3;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(239, 22);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Grado";
-            // 
             // dgvActividades
             // 
             this.dgvActividades.AllowUserToAddRows = false;
@@ -342,14 +296,7 @@ namespace Happy_Hollidays_Francesc_Bague.views
             this.dgvActividades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvActividades.Size = new System.Drawing.Size(412, 176);
             this.dgvActividades.TabIndex = 5;
-            // 
-            // bsAct_Hotel
-            // 
-            this.bsAct_Hotel.DataSource = typeof(Happy_Hollidays_Francesc_Bague.models.act_hotel);
-            // 
-            // bsActividades
-            // 
-            this.bsActividades.DataSource = typeof(Happy_Hollidays_Francesc_Bague.models.actividades);
+            this.dgvActividades.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvActividades_CellFormatting);
             // 
             // idciudadDataGridViewTextBoxColumn
             // 
@@ -407,6 +354,60 @@ namespace Happy_Hollidays_Francesc_Bague.views
             this.hotelesDataGridViewTextBoxColumn.Name = "hotelesDataGridViewTextBoxColumn";
             this.hotelesDataGridViewTextBoxColumn.ReadOnly = true;
             this.hotelesDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // bsAct_Hotel
+            // 
+            this.bsAct_Hotel.DataSource = typeof(Happy_Hollidays_Francesc_Bague.models.act_hotel);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(239, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(36, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Grado";
+            // 
+            // tbGrado
+            // 
+            this.tbGrado.Location = new System.Drawing.Point(281, 19);
+            this.tbGrado.Name = "tbGrado";
+            this.tbGrado.Size = new System.Drawing.Size(84, 20);
+            this.tbGrado.TabIndex = 3;
+            // 
+            // btnAñadir
+            // 
+            this.btnAñadir.Location = new System.Drawing.Point(371, 17);
+            this.btnAñadir.Name = "btnAñadir";
+            this.btnAñadir.Size = new System.Drawing.Size(55, 23);
+            this.btnAñadir.TabIndex = 2;
+            this.btnAñadir.Text = "Añadir";
+            this.btnAñadir.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(11, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Actividad";
+            // 
+            // cmbActividades
+            // 
+            this.cmbActividades.DataSource = this.bsActividades;
+            this.cmbActividades.DisplayMember = "descripcion";
+            this.cmbActividades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbActividades.FormattingEnabled = true;
+            this.cmbActividades.Location = new System.Drawing.Point(68, 19);
+            this.cmbActividades.Name = "cmbActividades";
+            this.cmbActividades.Size = new System.Drawing.Size(165, 21);
+            this.cmbActividades.TabIndex = 0;
+            this.cmbActividades.ValueMember = "id_act";
+            // 
+            // bsActividades
+            // 
+            this.bsActividades.DataSource = typeof(Happy_Hollidays_Francesc_Bague.models.actividades);
             // 
             // ManageHoteles
             // 

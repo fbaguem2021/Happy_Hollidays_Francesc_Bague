@@ -18,6 +18,7 @@ namespace Happy_Hollidays_Francesc_Bague.views
         private readonly List<String> TIPOS = new List<String>(new String[] { "PLAYA", "MONTAÑA" });
         private bool editionMode;
         private hoteles hotel;
+        private List<act_hotel> act_hoteles;
         public ManageHoteles()
         {
             InitializeComponent();
@@ -45,10 +46,14 @@ namespace Happy_Hollidays_Francesc_Bague.views
         {
             bsCiudad.DataSource = CiudadController.SelectAll();
             bsCadena.DataSource = CadenasController.selectAll();
+            bsActividades.DataSource = ActividadesController.Select();
             cmbTipo.DataSource = TIPOS;
         }
         private void loadEditionData()
         {
+            bsActividades.DataSource = ActividadesController.SelectByHotel(this.hotel);
+            this.act_hoteles = ActHotelController.Select(this.hotel);
+            bsAct_Hotel.DataSource = act_hoteles;
             cmbCiudad   .SelectedValue   = this.hotel.id_ciudad;
             tbNombre    .Text            = this.hotel.nombre;
             tbCategoria .Text            = this.hotel.categoria.ToString();
@@ -101,6 +106,15 @@ namespace Happy_Hollidays_Francesc_Bague.views
             else
             {
                 MessageBox.Show("La categoria ha de estar entre 1 y 5");
+            }
+        }
+
+        private void dgvActividades_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvActividades.Columns[e.ColumnIndex].Name == "act_nombre")
+            {
+                dgvActividades.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = ActividadesController.SelectById(act_hoteles[e.RowIndex].id_act).descripcion;
+
             }
         }
     }
