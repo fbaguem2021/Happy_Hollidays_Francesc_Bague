@@ -17,5 +17,10 @@ namespace Happy_Hollidays_Francesc_Bague.controllers
                 .OrderBy(ah => ah.id_act)
                 .ToList();
         }
+        public static String Insert(act_hotel ah)
+        {
+            Orm.bd.act_hotel.Add(ah);
+            return Orm.MySaveChanges();
+        }
     }
 }
