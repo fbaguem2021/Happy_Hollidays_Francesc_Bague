@@ -13,7 +13,7 @@ namespace Happy_Hollidays_Francesc_Bague.controllers
         public static List<act_hotel> Select(hoteles h)
         {
             return Orm.bd.act_hotel
-                .Where(ah => ah.id_ciudad == h.id_ciudad && ah.nombre != h.nombre)
+                .Where(ah => ah.hoteles.id == h.id)
                 .OrderBy(ah => ah.id_act)
                 .ToList();
         }

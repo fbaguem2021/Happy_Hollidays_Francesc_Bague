@@ -18,7 +18,8 @@ namespace Happy_Hollidays_Francesc_Bague.views
         private readonly List<String> TIPOS = new List<String>(new String[] { "PLAYA", "MONTAÑA" });
         private bool editionMode;
         private hoteles hotel;
-        private List<act_hotel> act_hoteles;
+        private List<act_hotel> act_hoteles = new List<act_hotel>();
+        private List<actividades> actividades = new List<actividades>();
         public ManageHoteles()
         {
             InitializeComponent();
@@ -36,8 +37,8 @@ namespace Happy_Hollidays_Francesc_Bague.views
 
         private void ManageHoteles_Load(object sender, EventArgs e)
         {
-            updateData();
             if (editionMode)
+            updateData();
             {
                 loadEditionData();
             }
@@ -46,7 +47,15 @@ namespace Happy_Hollidays_Francesc_Bague.views
         {
             bsCiudad.DataSource = CiudadController.SelectAll();
             bsCadena.DataSource = CadenasController.selectAll();
-            bsActividades.DataSource = ActividadesController.Select();
+            //bsActividades.DataSource = ActividadesController.Select();
+            if (this.editionMode == true)
+            {
+                bsActividades.DataSource = ActividadesController.SelectByHotel(this.hotel);
+            }
+            else
+            {
+                bsActividades.DataSource = ActividadesController.Select();
+            }
             cmbTipo.DataSource = TIPOS;
         }
         private void loadEditionData()
@@ -101,11 +110,28 @@ namespace Happy_Hollidays_Francesc_Bague.views
                 {
                     HotelesController.Insert(this.hotel);
                 }
-                this.Close();
+                //this.Close();
             }
             else
             {
                 MessageBox.Show("La categoria ha de estar entre 1 y 5");
+            }
+        }
+        private void btnAñadir_Click(object sender, EventArgs e)
+        {
+            if (editionMode)
+            {
+                act_hotel ah = new act_hotel();
+                ah.id_ciudad = this.hotel.id_ciudad;
+                ah.nombre = this.hotel.nombre;
+                ah.id_act = (int)cmbActividades.SelectedValue;
+                String a = ActHotelController.Insert(ah);
+                Console.WriteLine(a);
+                bsActividades.DataSource = ActividadesController.SelectByHotel(this.hotel);
+            }
+            else
+            {
+                MessageBox.Show("Primero deves crear un hotel");
             }
         }
 
@@ -114,7 +140,6 @@ namespace Happy_Hollidays_Francesc_Bague.views
             if (dgvActividades.Columns[e.ColumnIndex].Name == "act_nombre")
             {
                 dgvActividades.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = ActividadesController.SelectById(act_hoteles[e.RowIndex].id_act).descripcion;
-
             }
         }
     }

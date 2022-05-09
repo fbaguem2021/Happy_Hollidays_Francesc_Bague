@@ -38,7 +38,8 @@ namespace Happy_Hollidays_Francesc_Bague.views
 
         private void msiNuevoHotel_Click(object sender, EventArgs e)
         {
-
+            ManageHoteles f = new ManageHoteles();
+            f.ShowDialog();
         }
 
         private void msiSalir_Click(object sender, EventArgs e)

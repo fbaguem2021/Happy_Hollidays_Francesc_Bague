@@ -383,6 +383,7 @@ namespace Happy_Hollidays_Francesc_Bague.views
             this.btnAñadir.TabIndex = 2;
             this.btnAñadir.Text = "Añadir";
             this.btnAñadir.UseVisualStyleBackColor = true;
+            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
             // label8
             // 
